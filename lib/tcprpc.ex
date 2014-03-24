@@ -4,6 +4,6 @@ defmodule Tcprpc do
   # See http://elixir-lang.org/docs/stable/Application.Behaviour.html
   # for more information on OTP Applications
   def start(_type, _args) do
-    Tcprpc.Supervisor.start_link
+    Tcprpc.Supervisor.start_link :myarg1
   end
 end
