@@ -63,19 +63,37 @@ defmodule TcpFilter.Server do
     send_server(socket, rest)
   end
 
-  #doc 'F5'
+  #doc 'F5' Firmware 2.0
+  def send_server(socket, <<27, 79, 116, rest :: binary>>) do
+    :gen_tcp.send(socket, <<27, 91, 49, 53, 126>>)
+    send_server(socket, rest)
+  end
+
+  #doc 'F6' Firmware 2.0
+  def send_server(socket, <<27, 79, 117, rest :: binary>>) do
+    :gen_tcp.send(socket, <<27, 91, 49, 55, 126>>)
+    send_server(socket, rest)
+  end
+
+  #doc 'F7' Firmware 2.0
+  def send_server(socket, <<27, 79, 118, rest :: binary>>) do
+    :gen_tcp.send(socket, <<27, 91, 49, 56, 126>>)
+    send_server(socket, rest)
+  end
+
+  #doc 'F5' Firmware 4.2/3.9
   def send_server(socket, <<27, 79, 84, rest :: binary>>) do
     :gen_tcp.send(socket, <<27, 91, 49, 53, 126>>)
     send_server(socket, rest)
   end
 
-  #doc 'F6'
+  #doc 'F6' Firmware 4.2/3.9
   def send_server(socket, <<27, 79, 85, rest :: binary>>) do
     :gen_tcp.send(socket, <<27, 91, 49, 55, 126>>)
     send_server(socket, rest)
   end
 
-  #doc 'F7'
+  #doc 'F7' Firmware 4.2/3.9
   def send_server(socket, <<27, 79, 86, rest :: binary>>) do
     :gen_tcp.send(socket, <<27, 91, 49, 56, 126>>)
     send_server(socket, rest)
@@ -88,8 +106,26 @@ defmodule TcpFilter.Server do
   end
 
   #doc 'F9'
-  def send_server(socket, <<27, 79, 105, rest :: binary>>) do
-    :gen_tcp.send(socket, <<27, 91, 49, 58, 126>>)
+  def send_server(socket, <<27, 79, 32, rest :: binary>>) do
+    :gen_tcp.send(socket, <<27, 91, 50, 48, 126>>)
+    send_server(socket, rest)
+  end
+
+  #doc 'F10'
+  def send_server(socket, <<27, 79, 120, rest :: binary>>) do
+    :gen_tcp.send(socket, <<27, 91, 50, 49, 126>>)
+    send_server(socket, rest)
+  end
+
+  #doc 'F11'
+  def send_server(socket, <<27, 79, 97, rest :: binary>>) do
+    :gen_tcp.send(socket, <<27, 91, 50, 51, 126>>)
+    send_server(socket, rest)
+  end
+
+  #doc 'F12'
+  def send_server(socket, <<27, 79, 98, rest :: binary>>) do
+    :gen_tcp.send(socket, <<27, 91, 50, 52, 126>>)
     send_server(socket, rest)
   end
 
